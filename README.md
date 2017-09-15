@@ -2,8 +2,7 @@
 
 This project should make it easier to see all important PC infos in one window.
 Recently I stared to care more about my cpu/ram/wifi usage, because of some hardware problems
-or network problems, and I always were really annoyed to use windows taskmanager (too much unecessary info and not in one place)
-+ other tools for cpu/gpu temperature.
+or network problems, and I always were really annoyed to use windows taskmanager (too much unecessary info and not in one place) and other tools for cpu/gpu temperature.
 
 They were also not that easy to use.
 
