@@ -5,7 +5,7 @@
 class WindowsCpuControlManager
 {
 public:
-	void GetTotalCpuUsage();
+	int GetTotalCpuUsage();
 	void GetCpuTemperature();
 	void GetCpuFanSpeed();
 

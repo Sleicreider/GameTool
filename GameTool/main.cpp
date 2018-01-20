@@ -19,6 +19,12 @@ auto GetInt()
     return 1;
 }
 
+struct HWInfo
+{
+	int ram;
+	int cpu;
+};
+
 int main(int argc, char *argv[])
 {
     //QApplication a(argc, argv);
@@ -30,11 +36,15 @@ int main(int argc, char *argv[])
 
 	WindowsCpuControlManager cm;
 
-	std::thread t([&] { while(true)DebugPrint(cm.GetTotalRamUsage() << std::endl)});
+	HWInfo hw_info;
 
-	//DebugPrint("test " << cm.GetTotalRamUsage());
+	std::thread t1([&] { while (true) hw_info.cpu = cm.GetTotalCpuUsage(); });
+	std::thread t2([&] { while (true) hw_info.ram = cm.GetTotalRamUsage(); });
+	std::thread t3([&] { while (true) { DebugPrint("ram: " << hw_info.ram << std::endl << "cpu: " << hw_info.cpu << std::endl); Sleep(1000); } });
 
-	t.join();
+	t1.detach();
+	t2.detach();
+	t3.join();
 
     return a.exec();
 }
