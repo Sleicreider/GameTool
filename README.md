@@ -1,5 +1,7 @@
 # GameTool
 
+Download v0.01 here: https://drive.google.com/file/d/1HiAuCwpt-dSgR_9Io_3JOgAfb2GEttXW/view?usp=sharing
+
 This project should make it easier to see all important PC infos in one window.
 Recently I stared to care more about my cpu/ram/wifi usage, because of some hardware problems
 or network problems, and I always were really annoyed to use windows taskmanager (too much unecessary info and not in one place) and other tools for cpu/gpu temperature.
