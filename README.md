@@ -1,6 +1,6 @@
 # GameTool
 
-Download v0.01 here: https://drive.google.com/file/d/1HiAuCwpt-dSgR_9Io_3JOgAfb2GEttXW/view?usp=sharing
+Download v0.01 here: https://drive.google.com/file/d/18xHgVbdumBhNH8OOHik085izikyPCFbq/view?usp=sharing
 
 This project should make it easier to see all important PC infos in one window.
 Recently I stared to care more about my cpu/ram/wifi usage, because of some hardware problems
