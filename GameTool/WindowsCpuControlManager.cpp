@@ -63,7 +63,6 @@ int WindowsCpuControlManager::GetTotalCpuUsage()
 
 unsigned long WindowsCpuControlManager::GetTotalRamUsage()
 {
-	#include <windows.h>
 	MEMORYSTATUSEX mem_info;
 	mem_info.dwLength = sizeof(MEMORYSTATUSEX);
 	GlobalMemoryStatusEx(&mem_info);

@@ -41,17 +41,17 @@ int main(int argc, char *argv[])
 	{
 		w.SetTextCpu(std::to_string(hw_info.cpu));
 		w.SetTextRam(std::to_string(hw_info.ram));
-		//Sleep(1000);
+		Sleep(2000);
 	};
 
-	std::thread t1([&] { while (true) hw_info.cpu = cm.GetTotalCpuUsage(); });
-	std::thread t2([&] { while (true) hw_info.ram = cm.GetTotalRamUsage(); });
+	std::thread t1([&] { while (true) { hw_info.cpu = cm.GetTotalCpuUsage(); Sleep(2000); hw_info.ram = cm.GetTotalRamUsage(); Sleep(2000); } });
+	//std::thread t2([&] { while (true) hw_info.ram = cm.GetTotalRamUsage(); Sleep(2000); });
 	std::thread t3([&] { while (true) { fn_set_info(); } });
 
 	//DebugPrint("ram: " << hw_info.ram << std::endl << "cpu: " << hw_info.cpu << std::endl); Sleep(1000); }
 
 	t1.detach();
-	t2.detach();
+	//t2.detach();
 	t3.detach();
 
     return a.exec();
