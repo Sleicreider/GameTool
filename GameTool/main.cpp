@@ -27,24 +27,32 @@ struct HWInfo
 
 int main(int argc, char *argv[])
 {
-    //QApplication a(argc, argv);
-    //GameToolGUI w;
-    //w.show();
+    QApplication a(argc, argv);
+    GameToolGUI w;
+    w.show();
 
-	QCoreApplication a(argc, argv);
-
-
+	//QCoreApplication a(argc, argv);
+	
 	WindowsCpuControlManager cm;
 
 	HWInfo hw_info;
 
+	auto fn_set_info = [&w, &hw_info]()
+	{
+		w.SetTextCpu(std::to_string(hw_info.cpu));
+		w.SetTextRam(std::to_string(hw_info.ram));
+		//Sleep(1000);
+	};
+
 	std::thread t1([&] { while (true) hw_info.cpu = cm.GetTotalCpuUsage(); });
 	std::thread t2([&] { while (true) hw_info.ram = cm.GetTotalRamUsage(); });
-	std::thread t3([&] { while (true) { DebugPrint("ram: " << hw_info.ram << std::endl << "cpu: " << hw_info.cpu << std::endl); Sleep(1000); } });
+	std::thread t3([&] { while (true) { fn_set_info(); } });
+
+	//DebugPrint("ram: " << hw_info.ram << std::endl << "cpu: " << hw_info.cpu << std::endl); Sleep(1000); }
 
 	t1.detach();
 	t2.detach();
-	t3.join();
+	t3.detach();
 
     return a.exec();
 }
