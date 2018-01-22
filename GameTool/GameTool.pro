@@ -6,6 +6,8 @@
 
 QT       += core gui
 
+win32:RC_ICONS += baby2.ico baby3.ico
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = GameTool
