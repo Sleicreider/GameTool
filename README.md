@@ -17,6 +17,8 @@ and don't have a mac at the moment.
 But it will be  designed with crossplatform in mind, therefore I'll be using QT for GUI, everything else will be done
 in raw c++
 
+![Image, check right corner vor CPU,RAM](https://puu.sh/z7u6y/df90fa9967.png)
+
 v0.01
 Fix window position ~right corner for 1920x1080 resolution.
 Only RAM and CPU usage.
@@ -24,3 +26,5 @@ Fix Black color for text
 Fix background opacity
 Always in foreground
 (Does its puprose, at least for me to get rid of taskmanager for quick PC usage info)
+
+
