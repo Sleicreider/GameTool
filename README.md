@@ -28,3 +28,11 @@ Always in foreground
 (Does its puprose, at least for me to get rid of taskmanager for quick PC usage info)
 
 
+Future Features should include:
+
+- Be able to change font color / size.
+- Set window position
+- More data: Network usage, CPU Temperature, GPU temerature
+- Select which data you want to see
+- Window opacity
+
