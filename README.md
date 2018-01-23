@@ -35,4 +35,6 @@ Future Features should include:
 - More data: Network usage, CPU Temperature, GPU temerature
 - Select which data you want to see
 - Window opacity
+- System Tray functionality
+- Shortcut option for fast hiding and display
 
