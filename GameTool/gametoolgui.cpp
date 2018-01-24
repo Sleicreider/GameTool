@@ -1,8 +1,6 @@
 #include "gametoolgui.h"
 #include "ui_gametoolgui.h"
 
-#include <QMenu>
-#include <QSystemTrayIcon>
 
 
 GameToolGUI::GameToolGUI(QWidget *parent) :
@@ -26,22 +24,22 @@ GameToolGUI::GameToolGUI(QWidget *parent) :
 	p.setY(100);
 	move(p);
 
-    auto sys_tray_menu = new QMenu(this);
+    sys_tray_menu_ = std::make_unique<QMenu>(this);
     //sys_tray_menu->addAction(minimizeAction);
     //sys_tray_menu->addAction(maximizeAction);
     //sys_tray_menu->addAction(restoreAction);
-    sys_tray_menu->addSeparator();
+    sys_tray_menu_->addSeparator();
     //sys_tray_menu->addAction(quitAction);
 
-    auto sys_tray_icon = new QSystemTrayIcon(this);
-    sys_tray_icon->setContextMenu(sys_tray_menu);
+    sys_tray_icon_ = std::make_unique<QSystemTrayIcon>(this);
+    sys_tray_icon_->setContextMenu(sys_tray_menu_.get());
 
     QIcon icon("baby.ico");
-    sys_tray_icon->setIcon(icon);
+    sys_tray_icon_->setIcon(icon);
     //sys_tray_icon->setIcon(this->style()->standardIcon(QStyle::SP_ComputerIcon));
 
     setWindowIcon(icon);
-    sys_tray_icon->show();
+    sys_tray_icon_->show();
 
 	//ui->centralWidget->setWindowOpacity(0.2);
     //ui->label_cpu->palette().setColor(QPalette::WindowText, ui->label_cpu->foregroundRole(), Qt::white);

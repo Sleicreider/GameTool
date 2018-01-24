@@ -2,6 +2,10 @@
 #define GAMETOOLGUI_H
 
 #include <QMainWindow>
+#include <memory>
+#include <QMenu>
+#include <QSystemTrayIcon>
+
 
 namespace Ui {
 class GameToolGUI;
@@ -21,6 +25,8 @@ public:
 
 private:
     Ui::GameToolGUI *ui;
+    std::unique_ptr<QMenu> sys_tray_menu_;
+    std::unique_ptr<QSystemTrayIcon> sys_tray_icon_;
 };
 
 #endif // GAMETOOLGUI_H
