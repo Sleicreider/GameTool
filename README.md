@@ -1,6 +1,6 @@
 # GameTool
 
-Download v0.01 here: https://drive.google.com/file/d/18xHgVbdumBhNH8OOHik085izikyPCFbq/view?usp=sharing
+Download v0.01 here: https://drive.google.com/file/d/1yGMOSqNJvlEhq8EDB1WJEiWZnoZENzHb/view?usp=sharing
 
 This project should make it easier to see all important PC infos in one window.
 Recently I stared to care more about my cpu/ram/wifi usage, because of some hardware problems
@@ -17,6 +17,8 @@ and don't have a mac at the moment.
 But it will be  designed with crossplatform in mind, therefore I'll be using QT for GUI, everything else will be done
 in raw c++
 
+![Image, check right corner vor CPU,RAM](https://puu.sh/z7u6y/df90fa9967.png)
+
 v0.01
 Fix window position ~right corner for 1920x1080 resolution.
 Only RAM and CPU usage.
@@ -24,3 +26,15 @@ Fix Black color for text
 Fix background opacity
 Always in foreground
 (Does its puprose, at least for me to get rid of taskmanager for quick PC usage info)
+
+
+Future Features should include:
+
+- Be able to change font color / size.
+- Set window position
+- More data: Network usage, CPU Temperature, GPU temerature
+- Select which data you want to see
+- Window opacity
+- System Tray functionality
+- Shortcut option for fast hiding and display
+
