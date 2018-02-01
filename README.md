@@ -19,6 +19,8 @@ in raw c++
 
 ![Image, check right corner vor CPU,RAM](https://puu.sh/z7u6y/df90fa9967.png)
 
+Just Test code at the moment to see how it feels when playing a game.
+
 v0.01
 Fix window position ~right corner for 1920x1080 resolution.
 Only RAM and CPU usage.
