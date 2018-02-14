@@ -1,5 +1,7 @@
 # GameTool
 
+No new updates for the next few months.
+
 Download v0.01 here: https://drive.google.com/file/d/1yGMOSqNJvlEhq8EDB1WJEiWZnoZENzHb/view?usp=sharing
 
 This project should make it easier to see all important PC infos in one window.
