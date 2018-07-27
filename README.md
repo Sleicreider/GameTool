@@ -32,13 +32,16 @@ Always in foreground
 (Does its puprose, at least for me to get rid of taskmanager for quick PC usage info)
 
 
-Future Features should include:
+Future Todo:
 
-- Be able to change font color / size.
-- Set window position
+- Cleanup QT ui
+- Create Settings Window
+- Shortcuts, keybindings Commandpattern stuff(check)
+- Settings Popup: Be able to change font color / size.
+- Settings Popup:Set window position
 - More data: Network usage, CPU Temperature, GPU temerature
-- Select which data you want to see
-- Window opacity
-- System Tray functionality
+- Settings Popup:Select which data you want to see
+- Settings Popup:Window opacity
 - Shortcut option for fast hiding and display
+- Settings Popup: Keybindings
 
