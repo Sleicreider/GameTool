@@ -23,10 +23,17 @@ public:
     void SetTextRam(std::string&& text);
     void SetTextCpu(std::string&& text);
 
+private slots:
+    void OnExit();
+    void OnSettings();
+    void OnHide();
+    void OnShow();
+
 private:
     Ui::GameToolGUI *ui;
     std::unique_ptr<QMenu> sys_tray_menu_;
     std::unique_ptr<QSystemTrayIcon> sys_tray_icon_;
+    std::unique_ptr<QAction> action_close_;
 };
 
 #endif // GAMETOOLGUI_H
