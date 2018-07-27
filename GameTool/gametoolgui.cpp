@@ -8,19 +8,19 @@ GameToolGUI::GameToolGUI(QWidget* parent)
 
     // Always in foreground (doesn't work all the time)
     // QT::SubWindow to hide taskbar
-    // Qt::WindowFlags flags = windowFlags();
-    // flags = flags & ~Qt::WindowMinimizeButtonHint;
-    // setWindowFlags(flags | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::SubWindow);
+    Qt::WindowFlags flags = windowFlags();
+    flags = flags & ~Qt::WindowMinimizeButtonHint;
+    setWindowFlags(flags | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::SubWindow);
 
     ui->setupUi(this);
 
-    // Transparent BG
-    // setAttribute(Qt::WA_TranslucentBackground);
+    //Transparent BG
+    setAttribute(Qt::WA_TranslucentBackground);
 
-    // QPoint p;
-    // p.setX(1750);
-    // p.setY(100);
-    // move(p);
+    QPoint p;
+    p.setX(1750);
+    p.setY(100);
+    move(p);
 
     auto action_show = new QAction(tr("Show"), this);
     connect(action_show, &QAction::triggered, this, &GameToolGUI::OnShow);
@@ -62,7 +62,7 @@ GameToolGUI::GameToolGUI(QWidget* parent)
     sys_tray_icon_->show();
     sys_tray_icon_->showMessage("Orgel Hanz", "Befreundet seie er das manz");
 
-     ui->centralWidget->setWindowOpacity(0.2);
+    //ui->centralWidget->setWindowOpacity(0.2);
     // ui->label_cpu->palette().setColor(QPalette::WindowText, ui->label_cpu->foregroundRole(), Qt::white);
 }
 
