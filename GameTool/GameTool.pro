@@ -28,14 +28,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         gametoolgui.cpp \
-    WindowsCpuControlManager.cpp
+    WindowsCpuControlManager.cpp \
+    SettingsGUI.cpp
 
 HEADERS += \
         gametoolgui.h \
-    WindowsCpuControlManager.h
+    WindowsCpuControlManager.h \
+    SettingsGUI.h
 
 FORMS += \
-        gametoolgui.ui
+        gametoolgui.ui \
+    SettingsGUI.ui
 
 RESOURCES += \
     app.qrc

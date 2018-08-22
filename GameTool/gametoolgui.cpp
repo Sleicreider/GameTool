@@ -4,24 +4,50 @@
 GameToolGUI::GameToolGUI(QWidget* parent)
     : QMainWindow(parent)
     , ui(new Ui::GameToolGUI)
+    //, gui_settings_(new SettingsGUI(this))
 {
-
     // Always in foreground (doesn't work all the time)
     // QT::SubWindow to hide taskbar
     Qt::WindowFlags flags = windowFlags();
     flags = flags & ~Qt::WindowMinimizeButtonHint;
-    setWindowFlags(flags | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::SubWindow);
+    setWindowFlags(flags | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);// | Qt::SubWindow);
 
     ui->setupUi(this);
 
     //Transparent BG
     setAttribute(Qt::WA_TranslucentBackground);
 
+    //setWindowOpacity(0);
+
     QPoint p;
     p.setX(1750);
     p.setY(100);
     move(p);
 
+	CreateSystemTrayIcon();
+
+
+    gui_settings_.RegisterOnFontChanged([&](const SFontColor& fc){ SetFontColor(fc); });
+    gui_settings_.RegisterOnBackgrounEnabledChanged([&](bool enabled){ SetBackgroundEnabled(enabled); });
+}
+
+GameToolGUI::~GameToolGUI()
+{
+    delete ui;
+}
+
+void GameToolGUI::SetTextCpu(std::string&& text) 
+{ 
+	ui->label_edit_cpu->setText(QString::fromStdString(text)); 
+}
+
+void GameToolGUI::SetTextRam(std::string&& text) 
+{ 
+	ui->label_edit_ram->setText(QString::fromStdString(text));
+}
+
+void GameToolGUI::CreateSystemTrayIcon()
+{
     auto action_show = new QAction(tr("Show"), this);
     connect(action_show, &QAction::triggered, this, &GameToolGUI::OnShow);
 
@@ -62,20 +88,22 @@ GameToolGUI::GameToolGUI(QWidget* parent)
     sys_tray_icon_->show();
     sys_tray_icon_->showMessage("Orgel Hanz", "Befreundet seie er das manz");
 
-    //ui->centralWidget->setWindowOpacity(0.2);
+    // ui->centralWidget->setWindowOpacity(0.2);
     // ui->label_cpu->palette().setColor(QPalette::WindowText, ui->label_cpu->foregroundRole(), Qt::white);
 }
 
-GameToolGUI::~GameToolGUI() { delete ui; }
-
-void GameToolGUI::SetTextCpu(std::string&& text) 
-{ 
-	ui->label_edit_cpu->setText(QString::fromStdString(text)); 
+void GameToolGUI::SetFontColor(const SFontColor &fc)
+{
+    ui->label_cpu->setStyleSheet(fc.style_sheet);
+    ui->label_edit_cpu->setStyleSheet(fc.style_sheet);
+    ui->label_edit_ram->setStyleSheet(fc.style_sheet);
+    ui->label_ram->setStyleSheet(fc.style_sheet);
 }
 
-void GameToolGUI::SetTextRam(std::string&& text) 
-{ 
-	ui->label_edit_ram->setText(QString::fromStdString(text));
+void GameToolGUI::SetBackgroundEnabled(bool enable)
+{
+    bBackgroundEnabled_ = enable;
+    update();
 }
 
 void GameToolGUI::OnExit()
@@ -85,7 +113,7 @@ void GameToolGUI::OnExit()
 
 void GameToolGUI::OnSettings()
 {
-
+    gui_settings_.show();
 }
 
 void GameToolGUI::OnShow()

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Form Files">
@@ -37,6 +37,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="WindowsCpuControlManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="gametoolgui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -49,12 +52,11 @@
     <ClCompile Include="GeneratedFiles\Release\moc_gametoolgui.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="WindowsCpuControlManager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="gametoolgui.h">
+    <ClInclude Include="WindowsCpuControlManager.h">
       <Filter>Header Files</Filter>
-    </CustomBuild>
+    </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_gametoolgui.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
@@ -66,13 +68,11 @@
     <CustomBuild Include="release\moc_predefs.h.cbt">
       <Filter>Generated Files</Filter>
     </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
+    <CustomBuild Include="gametoolgui.h">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
     <CustomBuild Include="gametoolgui.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="WindowsCpuControlManager.h" />
   </ItemGroup>
 </Project>
