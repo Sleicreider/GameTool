@@ -86,7 +86,7 @@ void GameToolGUI::CreateSystemTrayIcon()
 
     // setWindowIcon(icon);
     sys_tray_icon_->show();
-    sys_tray_icon_->showMessage("Orgel Hanz", "Befreundet seie er das manz");
+    //sys_tray_icon_->showMessage("Orgel Hanz", "Befreundet seie er das manz");
 
     // ui->centralWidget->setWindowOpacity(0.2);
     // ui->label_cpu->palette().setColor(QPalette::WindowText, ui->label_cpu->foregroundRole(), Qt::white);
