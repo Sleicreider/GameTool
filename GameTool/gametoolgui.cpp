@@ -29,6 +29,8 @@ GameToolGUI::GameToolGUI(QWidget* parent)
 
     gui_settings_.RegisterOnFontChanged([&](const SFontColor& fc){ SetFontColor(fc); });
     gui_settings_.RegisterOnBackgrounEnabledChanged([&](bool enabled){ SetBackgroundEnabled(enabled); });
+
+    InitUI();
 }
 
 GameToolGUI::~GameToolGUI()
@@ -90,6 +92,14 @@ void GameToolGUI::CreateSystemTrayIcon()
 
     // ui->centralWidget->setWindowOpacity(0.2);
     // ui->label_cpu->palette().setColor(QPalette::WindowText, ui->label_cpu->foregroundRole(), Qt::white);
+}
+
+void GameToolGUI::InitUI()
+{
+    const auto& settings = gui_settings_.GetSettings();
+
+    SetFontColor(settings.GetActiveFontColor());
+    SetBackgroundEnabled(settings.IsBackgroundEnabled());
 }
 
 void GameToolGUI::SetFontColor(const SFontColor &fc)

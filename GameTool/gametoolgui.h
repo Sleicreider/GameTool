@@ -28,6 +28,7 @@ public:
 
 private:
     void CreateSystemTrayIcon();
+    void InitUI();
     void SetFontColor(const SFontColor& fc);
     void SetBackgroundEnabled(bool enable);
 

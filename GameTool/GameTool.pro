@@ -6,7 +6,7 @@
 
 QT       += core gui
 
-RC_ICONS += baby2.ico meteor.ico
+RC_ICONS += meteor.ico
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -29,12 +29,16 @@ SOURCES += \
         main.cpp \
         gametoolgui.cpp \
     WindowsCpuControlManager.cpp \
-    SettingsGUI.cpp
+    SettingsGUI.cpp \
+    Settings.cpp \
+    SettingsController.cpp
 
 HEADERS += \
         gametoolgui.h \
     WindowsCpuControlManager.h \
-    SettingsGUI.h
+    SettingsGUI.h \
+    Settings.h \
+    SettingsController.h
 
 FORMS += \
         gametoolgui.ui \

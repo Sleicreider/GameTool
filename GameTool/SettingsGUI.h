@@ -7,28 +7,13 @@
 #include <functional>
 #include <QCloseEvent>
 
+#include "Settings.h"
+#include "SettingsController.h"
+
 
 class QComboBox;
 class QCheckBox;
 
-struct EFontColor
-{
-    enum Type
-    {
-        Black = 0,
-        White,
-        Yellow,
-        Blue,
-        COUNT
-    };
-};
-
-struct SFontColor
-{
-    EFontColor::Type index;
-    const char* name;
-    const char* style_sheet;
-};
 
 namespace Ui {
 class SettingsGUI;
@@ -47,43 +32,27 @@ public:
 
     void RegisterOnFontChanged(FontColorChangedFunction fn);
     void RegisterOnBackgrounEnabledChanged(BackgroundEnabledFunction fn);
-
-   private:
-    void CreateFontColors();
-
-
-
-private slots:
-    void OnComboIndexChanged(int index)
-    {
-        if(fn_font_changed_)
-            fn_font_changed_(font_colors_[index]);
-    }
-
-    void OnCheckBoxBackgroundEnabled(int enabled)
-    {
-        bBackgroundEnabled_ = enabled;
-
-        if(fn_background_enabled_changed_)
-            fn_background_enabled_changed_(bBackgroundEnabled_);
-    }
+    const Settings& GetSettings() const;
 
 private:
-    static const SFontColor FONT_BLACK;
-    static const SFontColor FONT_WHITE;
-    static const SFontColor FONT_BLUE;
-    static const SFontColor FONT_YELLOW;
+    void CreateFontColors();
+
+private slots:
+    void OnComboIndexChanged(int index);
+    void OnCheckBoxBackgroundEnabled(int enabled);
 
 private:
     FontColorContainer font_colors_;
 
-private:
     Ui::SettingsGUI *ui;
     QComboBox* combo_font_color_;
     QCheckBox* checkbox_background_enabled_;
+
+    Settings settings_;
+    SettingsController settings_crtl_;
+
     FontColorChangedFunction fn_font_changed_;
     BackgroundEnabledFunction fn_background_enabled_changed_;
-    bool bBackgroundEnabled_:1;
 };
 
 #endif // SETTINGSGUI_H
