@@ -8,6 +8,8 @@ QT       += core gui
 
 RC_ICONS += meteor.ico
 
+FLAGS += /std:c++17
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = GameTool
@@ -31,14 +33,17 @@ SOURCES += \
     WindowsCpuControlManager.cpp \
     SettingsGUI.cpp \
     Settings.cpp \
-    SettingsController.cpp
+    SettingsController.cpp \
+    FileOperation.cpp
 
 HEADERS += \
         gametoolgui.h \
     WindowsCpuControlManager.h \
     SettingsGUI.h \
     Settings.h \
-    SettingsController.h
+    SettingsController.h \
+    FGeneral.h \
+    FileOperation.h
 
 FORMS += \
         gametoolgui.ui \

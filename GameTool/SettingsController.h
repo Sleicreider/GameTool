@@ -11,6 +11,9 @@ public:
    void LoadSettings();
    void SaveSettings();
 
+   inline static constexpr char* TAG_BACKGROUND_ENABLED = "BackgroundEnabled";
+   inline static constexpr char* TAG_SELECTED_FONT_COLOR_INDEX = "SelectedFontColorIndex";
+
 private:
    const Settings& settings_;
 };
